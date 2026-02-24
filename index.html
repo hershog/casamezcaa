@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Mezca - Luxury Coastal Properties</title>
+    <title>Casa Mezca</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Cpath d='M50 25 L75 45 L75 75 L25 75 L25 45 Z' fill='none' stroke='%23bda588' stroke-width='3' stroke-linejoin='miter'/%3E%3Crect x='42' y='55' width='16' height='20' fill='none' stroke='%23bda588' stroke-width='2'/%3E%3Cpath d='M35 50 L40 50 M60 50 L65 50' stroke='%23bda588' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sanchez:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,71 +18,82 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Sanchez', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            color: #1f2937;
+            color: #bda588;
+            background: #1a1a1a;
             overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'DM Serif Display', serif;
+            color: #bda588;
         }
 
         h1 {
             font-size: 4rem;
-            font-weight: 700;
+            font-weight: 400;
             margin-bottom: 1rem;
             line-height: 1.1;
         }
 
         h2 {
             font-size: 3rem;
-            font-weight: 600;
+            font-weight: 400;
             margin-bottom: 1rem;
         }
 
         h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 400;
         }
 
         p {
             font-size: 1.125rem;
             font-weight: 400;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #bda588;
+            text-decoration: none;
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(30, 58, 138, 0.6), rgba(30, 58, 138, 0.6)),
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)),
                         url('https://images.unsplash.com/photo-1729708475316-88ec2dc0083e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBiZWFjaCUyMHJlc29ydHxlbnwxfHx8fDE3NjcwNzE3OTR8MA&ixlib=rb-4.1.0&q=80&w=1080') center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white;
             position: relative;
         }
 
         .hero h1 {
             opacity: 0;
             transform: translateY(50px);
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         .hero p {
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.3s forwards;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
             max-width: 600px;
             margin: 0 1rem 2rem;
         }
 
         .hero-btn {
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.7s forwards;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease 0.7s forwards;
             padding: 0.75rem 2rem;
-            background: white;
-            color: #1e3a8a;
+            background: #bda588;
+            color: white;
             border: none;
             border-radius: 9999px;
             font-size: 1rem;
@@ -91,7 +103,7 @@
         }
 
         .hero-btn:hover {
-            background: #dbeafe;
+            background: #a89377;
         }
 
         @keyframes fadeInUp {
@@ -101,10 +113,10 @@
             }
         }
 
-        /* Features Section */
-        .features {
+        /* Section Base */
+        section {
             padding: 8rem 1rem;
-            background: #3b82f6;
+            background: #1a1a1a;
         }
 
         .container {
@@ -120,9 +132,8 @@
         .section-header h2,
         .section-header p {
             opacity: 0;
-            transform: translateY(100px);
-            transition: opacity 0.6s, transform 0.6s;
-            color: white;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
         .section-header p {
@@ -138,79 +149,78 @@
         .section-header.visible p {
             opacity: 1;
             transform: translateY(0);
-            transition-delay: 0.1s;
+            transition-delay: 0.2s;
         }
 
-        .section-header.hidden h2,
-        .section-header.hidden p {
+        /* Features Section */
+        .features-description {
+            text-align: left;
+            max-width: 42rem;
+            margin: 1.5rem auto 3rem;
             opacity: 0;
-            transform: translateY(-50px);
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s;
+        }
+
+        .section-header.visible .features-description {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .features-description p {
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .features-description ul {
+            list-style-position: inside;
+            margin-left: 0;
+        }
+
+        .features-description li {
+            margin-bottom: 0.25rem;
         }
 
         .features-grid {
+            max-width: 768px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1.5rem;
-            text-align: center;
+        .advantage-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #2a2a2a;
+            border-radius: 1rem;
+            border: 1px solid rgba(189, 165, 136, 0.2);
             opacity: 0;
-            transform: translateY(80px) scale(0.8);
-            transition: opacity 0.6s, transform 0.6s, box-shadow 0.3s;
+            transform: translateY(40px) scale(0.95);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        .feature-card.visible {
+        .advantage-item.visible {
             opacity: 1;
             transform: translateY(0) scale(1);
         }
 
-        .feature-card.hidden {
-            opacity: 0;
-            transform: translateY(-50px) scale(0.9);
+        .advantage-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: #bda588;
+            flex-shrink: 0;
         }
 
-        .feature-card:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-icon {
-            width: 4rem;
-            height: 4rem;
-            background: #dbeafe;
-            border-radius: 1rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 0.75rem;
-            color: #1e3a8a;
-        }
-
-        .feature-card p {
-            color: #4b5563;
-            font-size: 1rem;
-            display: none;
+        .advantage-item p {
+            font-size: 1.125rem;
+            color: #bda588;
         }
 
         /* Gallery Section */
-        .gallery {
-            padding: 8rem 1rem;
-            background: #60a5fa;
-        }
-
-        .gallery .section-header h2,
-        .gallery .section-header p {
-            color: white;
-        }
-
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -222,20 +232,16 @@
             aspect-ratio: 4/5;
             border-radius: 1.5rem;
             overflow: hidden;
-            background: #dbeafe;
+            background: #2a2a2a;
             opacity: 0;
-            transform: translateY(100px) scale(0.9) rotate(5deg);
-            transition: opacity 0.6s, transform 0.6s;
+            transform: translateY(60px) scale(0.9);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            cursor: pointer;
         }
 
         .gallery-item.visible {
             opacity: 1;
-            transform: translateY(0) scale(1) rotate(0deg);
-        }
-
-        .gallery-item.hidden {
-            opacity: 0;
-            transform: translateY(-50px) scale(0.9);
+            transform: translateY(0) scale(1);
         }
 
         .gallery-item img {
@@ -254,102 +260,188 @@
             inset: 0;
             background: rgba(0, 0, 0, 0);
             transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .gallery-item:hover .gallery-overlay {
             background: rgba(0, 0, 0, 0.2);
         }
 
+        .zoom-icon {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .zoom-icon {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            padding: 1rem;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-btn {
+            position: absolute;
+            padding: 0.75rem;
+            background: #2a2a2a;
+            border: none;
+            border-radius: 50%;
+            color: #bda588;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .lightbox-btn:hover {
+            background: #3a3a3a;
+        }
+
+        .lightbox-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .close-btn {
+            top: 1.5rem;
+            right: 1.5rem;
+        }
+
+        .prev-btn {
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .next-btn {
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .counter {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: #2a2a2a;
+            border-radius: 9999px;
+            color: #bda588;
+            font-weight: 600;
+        }
+
+        .zoom-controls {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+        }
+
         /* Contact Section */
-        .contact {
-            padding: 8rem 1rem;
-            background: #1e3a8a;
-            color: white;
-        }
-
-        .contact .container {
-            max-width: 56rem;
-        }
-
-        .contact .section-header h2,
-        .contact .section-header p {
-            color: white;
-        }
-
-        .contact-info {
+        .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-item {
             text-align: center;
             opacity: 0;
-            transform: translateY(60px);
-            transition: opacity 0.6s, transform 0.6s;
+            transform: translateY(40px) scale(0.95);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
         .contact-item.visible {
             opacity: 1;
-            transform: translateY(0);
-        }
-
-        .contact-item.hidden {
-            opacity: 0;
-            transform: translateY(-40px);
+            transform: translateY(0) scale(1);
         }
 
         .contact-icon {
-            width: 3rem;
-            height: 3rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background: #2a2a2a;
+            border: 1px solid rgba(189, 165, 136, 0.2);
+            border-radius: 1rem;
             margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
 
         .contact-item h3 {
             margin-bottom: 0.5rem;
         }
 
-        .contact-item p {
-            color: #bfdbfe;
-            font-size: 1rem;
-        }
-
-        .contact-item a {
-            color: #bfdbfe;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
         .contact-item a:hover {
-            color: white;
+            opacity: 0.7;
         }
 
         .footer {
             text-align: center;
             margin-top: 5rem;
             padding-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bfdbfe;
+            border-top: 1px solid rgba(189, 165, 136, 0.2);
             opacity: 0;
-            transform: translateY(80px);
-            transition: opacity 0.6s, transform 0.6s;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out 0.5s, transform 0.6s ease-out 0.5s;
         }
 
-        .footer.visible {
+        .section-header.visible ~ .contact-grid ~ .footer,
+        .contact.visible .footer {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .footer.hidden {
-            opacity: 0;
-            transform: translateY(-50px);
+        /* Icons (SVG) */
+        .icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        .icon-lg {
+            width: 48px;
+            height: 48px;
         }
 
         /* Responsive */
@@ -362,14 +454,16 @@
                 font-size: 2rem;
             }
 
-            .features,
-            .gallery,
-            .contact {
+            section {
                 padding: 4rem 1rem;
             }
 
             .features-grid,
             .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -391,9 +485,9 @@
             <div class="section-header" data-animate="header">
                 <h2>Why Choose Casa Mezca</h2>
                 <p>Casa Mezca is our spacious, fully furnished apartment that makes the perfect getaway for anyone looking for some rest and relaxation. It is an ideal place for couples, small families, digital nomads and anyone looking for short or long-term stays.</p>
-                <div style="text-align: left; max-width: 42rem; margin: 1.5rem auto 0;">
-                    <p style="margin-bottom: 0.75rem; font-weight: 600;">The apartment features:</p>
-                    <ul style="list-style-position: inside; margin-left: 0;">
+                <div class="features-description">
+                    <p>The apartment features:</p>
+                    <ul>
                         <li>2 Bedrooms + 2 Bathrooms</li>
                         <li>A short 10 minute drive to the beach (Nuevo Nayarit or Bucerias)</li>
                         <li>Gated community with pool, security & private parking</li>
@@ -404,24 +498,21 @@
             </div>
 
             <div class="features-grid">
-                <div class="feature-card" data-animate="card" data-delay="0">
-                    <div class="feature-icon">🏊</div>
-                    <h3>1 Pool</h3>
+                <div class="advantage-item" data-animate="advantage" data-delay="0">
+                    <div class="advantage-dot"></div>
+                    <p>1 Pool</p>
                 </div>
-
-                <div class="feature-card" data-animate="card" data-delay="1">
-                    <div class="feature-icon">🏖️</div>
-                    <h3>15 Minute Drive to Beach</h3>
+                <div class="advantage-item" data-animate="advantage" data-delay="1">
+                    <div class="advantage-dot"></div>
+                    <p>15 Minute Drive to Beach</p>
                 </div>
-
-                <div class="feature-card" data-animate="card" data-delay="2">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Gated Area</h3>
+                <div class="advantage-item" data-animate="advantage" data-delay="2">
+                    <div class="advantage-dot"></div>
+                    <p>Gated Area</p>
                 </div>
-
-                <div class="feature-card" data-animate="card" data-delay="3">
-                    <div class="feature-icon">✈️</div>
-                    <h3>Fairly Close Access to Airport</h3>
+                <div class="advantage-item" data-animate="advantage" data-delay="3">
+                    <div class="advantage-dot"></div>
+                    <p>Fairly Close Access to Airport</p>
                 </div>
             </div>
         </div>
@@ -436,51 +527,8 @@
                 <p style="margin-top: 1rem;">Mezcales stands as a vibrant residential community that blends traditional Mexican spirit with modern comforts and is just a 15-minute drive from Puerto Vallarta's international airport, making it highly accessible for visitors and residents alike.</p>
             </div>
 
-            <div class="gallery-grid">
-                <div class="gallery-item" data-animate="gallery" data-delay="0">
-                    <img src="data:image/png;base64,figma:asset/cef941a1cab9b8693e151e71884175a99ce6a228.png" alt="Casa Mezca Living Room">
-                    <div class="gallery-overlay"></div>
-                </div>
-
-                <div class="gallery-item" data-animate="gallery" data-delay="1">
-                    <img src="data:image/png;base64,figma:asset/5ae3733c34ac9284feba786912c64d7a2b60effe.png" alt="Casa Mezca Balcony View">
-                    <div class="gallery-overlay"></div>
-                </div>
-
-                <div class="gallery-item" data-animate="gallery" data-delay="2">
-                    <img src="data:image/png;base64,figma:asset/67ce529f5d6c5139bf956267b7bf7504ebf15c18.png" alt="Casa Mezca Bathroom">
-                    <div class="gallery-overlay"></div>
-                </div>
-
-                <div class="gallery-item" data-animate="gallery" data-delay="3">
-                    <img src="https://images.squarespace-cdn.com/content/v1/68ace0fa4269bd5dde01bf7b/393e595d-2302-4d62-93e2-3759f13ffcbf/IMG_4219.JPG?format=2500w" alt="Casa Mezca Property">
-                    <div class="gallery-overlay"></div>
-                </div>
-
-                <div class="gallery-item" data-animate="gallery" data-delay="4">
-                    <img src="https://images.unsplash.com/photo-1729707690998-1d4c5d755c0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBwb29sJTIwcmVzb3J0fGVufDF8fHx8MTc2NzI5MzU5NXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Luxury Pool">
-                    <div class="gallery-overlay"></div>
-                </div>
-
-                <div class="gallery-item" data-animate="gallery" data-delay="5">
-                    <img src="https://images.unsplash.com/photo-1687089681994-933206177627?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvY2VhbiUyMHZpZXclMjBiYWxjb255fGVufDF8fHx8MTc2NzI5MzU5Nnww&ixlib=rb-4.1.0&q=80&w=1080" alt="Ocean View Balcony">
-                    <div class="gallery-overlay"></div>
-                </div>
-
-                <div class="gallery-item" data-animate="gallery" data-delay="6">
-                    <img src="https://images.unsplash.com/photo-1668089677938-b52086753f77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBiZWRyb29tJTIwaW50ZXJpb3J8ZW58MXx8fHwxNzY3MjUyNzI4fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Modern Bedroom">
-                    <div class="gallery-overlay"></div>
-                </div>
-
-                <div class="gallery-item" data-animate="gallery" data-delay="7">
-                    <img src="https://images.unsplash.com/photo-1672841828482-45faa4c70e50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGJlYWNoJTIwc3Vuc2V0fGVufDF8fHx8MTc2NzI0NDEzMHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Tropical Beach Sunset">
-                    <div class="gallery-overlay"></div>
-                </div>
-
-                <div class="gallery-item" data-animate="gallery" data-delay="8">
-                    <img src="https://images.unsplash.com/photo-1642979427252-13d5fd18bb61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBraXRjaGVuJTIwd2hpdGV8ZW58MXx8fHwxNzY3MjcyNzYxfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Modern Kitchen">
-                    <div class="gallery-overlay"></div>
-                </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be inserted here by JavaScript -->
             </div>
         </div>
     </section>
@@ -493,27 +541,231 @@
                 <p>Ready to make Casa Mezca your home? Contact us today to learn more about our available properties</p>
             </div>
 
-            <div class="contact-info">
+            <div class="contact-grid">
                 <div class="contact-item" data-animate="contact" data-delay="0">
-                    <div class="contact-icon">✉️</div>
+                    <div class="contact-icon">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
                     <h3>Email</h3>
                     <p><a href="mailto:contact@casamezca.ca">contact@casamezca.ca</a></p>
                 </div>
 
                 <div class="contact-item" data-animate="contact" data-delay="1">
-                    <div class="contact-icon">📍</div>
+                    <div class="contact-icon">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
                     <h3>Location</h3>
                     <p>Riviera Nayarit, Mexico</p>
                 </div>
             </div>
 
-            <div class="footer" data-animate="footer">
+            <div class="footer">
                 <p>© 2025 Casa Mezca. All rights reserved.</p>
             </div>
         </div>
     </section>
 
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-btn close-btn" onclick="closeLightbox()">
+            <svg class="icon" viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        
+        <div class="counter" id="imageCounter">1 / 12</div>
+        
+        <button class="lightbox-btn prev-btn" onclick="prevImage()">
+            <svg class="icon" viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        
+        <button class="lightbox-btn next-btn" onclick="nextImage()">
+            <svg class="icon" viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+        
+        <div class="zoom-controls">
+            <button class="lightbox-btn" id="zoomOutBtn" onclick="zoomOut()">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+            </button>
+            <button class="lightbox-btn" id="zoomInBtn" onclick="zoomIn()">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightboxImage" class="lightbox-image" src="" alt="">
+        </div>
+    </div>
+
     <script>
+        // Gallery images data
+        const images = [
+            {
+                src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200',
+                alt: 'Casa Mezca Living Room'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200',
+                alt: 'Casa Mezca Balcony View'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200',
+                alt: 'Casa Mezca Bathroom'
+            },
+            {
+                src: 'https://images.squarespace-cdn.com/content/v1/68ace0fa4269bd5dde01bf7b/393e595d-2302-4d62-93e2-3759f13ffcbf/IMG_4219.JPG?format=2500w',
+                alt: 'Casa Mezca Property'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1729707690998-1d4c5d755c0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBwb29sJTIwcmVzb3J0fGVufDF8fHx8MTc2NzI5MzU5NXww&ixlib=rb-4.1.0&q=80&w=1080',
+                alt: 'Luxury Pool'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1687089681994-933206177627?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvY2VhbiUyMHZpZXclMjBiYWxjb255fGVufDF8fHx8MTc2NzI5MzU5Nnww&ixlib=rb-4.1.0&q=80&w=1080',
+                alt: 'Ocean View Balcony'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1668089677938-b52086753f77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBiZWRyb29tJTIwaW50ZXJpb3J8ZW58MXx8fHwxNzY3MjUyNzI4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+                alt: 'Modern Bedroom'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1672841828482-45faa4c70e50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGJlYWNoJTIwc3Vuc2V0fGVufDF8fHx8MTc2NzI0NDEzMHww&ixlib=rb-4.1.0&q=80&w=1080',
+                alt: 'Tropical Beach Sunset'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1642979427252-13d5fd18bb61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBraXRjaGVuJTIwd2hpdGV8ZW58MXx8fHwxNjcyNzI3NjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
+                alt: 'Modern Kitchen'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1619492774026-a9d7bebe06e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBvdXRkb29yJTIwcGF0aW98ZW58MXx8fHwxNzY3NzUxNTEyfDA&ixlib=rb-4.1.0&q=80&w=1080',
+                alt: 'Luxury Outdoor Patio'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1632210606897-b90ce977f207?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsaXZpbmclMjByb29tJTIwY29hc3RhbHxlbnwxfHx8fDE3Njc4MzU4OTN8MA&ixlib=rb-4.1.0&q=80&w=1080',
+                alt: 'Modern Living Room Coastal'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1578058997959-66ffdee9f807?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzd2ltbWluZyUyMHBvb2wlMjBzdW5zZXR8ZW58MXx8fHwxNzY3ODM1ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080',
+                alt: 'Swimming Pool Sunset'
+            }
+        ];
+
+        // Build gallery
+        const galleryGrid = document.getElementById('galleryGrid');
+        images.forEach((image, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.setAttribute('data-animate', 'gallery');
+            item.setAttribute('data-delay', index);
+            item.onclick = () => openLightbox(index);
+            item.innerHTML = `
+                <img src="${image.src}" alt="${image.alt}">
+                <div class="gallery-overlay">
+                    <svg class="icon icon-lg zoom-icon" viewBox="0 0 24 24" style="color: white;">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                    </svg>
+                </div>
+            `;
+            galleryGrid.appendChild(item);
+        });
+
+        // Lightbox functionality
+        let currentImageIndex = 0;
+        let currentZoom = 1;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            currentZoom = 1;
+            updateLightboxImage();
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+            currentZoom = 1;
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            currentZoom = 1;
+            updateLightboxImage();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            currentZoom = 1;
+            updateLightboxImage();
+        }
+
+        function zoomIn() {
+            if (currentZoom < 3) {
+                currentZoom = Math.min(currentZoom + 0.5, 3);
+                updateZoom();
+            }
+        }
+
+        function zoomOut() {
+            if (currentZoom > 1) {
+                currentZoom = Math.max(currentZoom - 0.5, 1);
+                updateZoom();
+            }
+        }
+
+        function updateLightboxImage() {
+            const img = document.getElementById('lightboxImage');
+            img.src = images[currentImageIndex].src;
+            img.alt = images[currentImageIndex].alt;
+            document.getElementById('imageCounter').textContent = `${currentImageIndex + 1} / ${images.length}`;
+            updateZoom();
+        }
+
+        function updateZoom() {
+            const img = document.getElementById('lightboxImage');
+            img.style.transform = `scale(${currentZoom})`;
+            document.getElementById('zoomOutBtn').disabled = currentZoom <= 1;
+            document.getElementById('zoomInBtn').disabled = currentZoom >= 3;
+        }
+
+        // Close lightbox on click outside or ESC key
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
         // Scroll Animation Handler
         function handleScrollAnimations() {
             const sections = document.querySelectorAll('[data-section]');
@@ -521,107 +773,53 @@
             sections.forEach(section => {
                 const rect = section.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
-                const scrollProgress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)));
+                const isInView = rect.top < windowHeight * 0.75 && rect.bottom > windowHeight * 0.25;
                 
                 // Animate headers
                 const header = section.querySelector('[data-animate="header"]');
-                if (header) {
-                    if (scrollProgress > 0.05 && scrollProgress < 0.8) {
-                        header.classList.add('visible');
-                        header.classList.remove('hidden');
-                    } else if (scrollProgress >= 0.8) {
-                        header.classList.add('hidden');
-                        header.classList.remove('visible');
-                    } else {
-                        header.classList.remove('visible', 'hidden');
-                    }
+                if (header && isInView) {
+                    header.classList.add('visible');
                 }
                 
-                // Animate feature cards
-                const cards = section.querySelectorAll('[data-animate="card"]');
-                cards.forEach((card, index) => {
-                    const delay = index * 0.02;
-                    const startProgress = 0.15 + delay;
-                    const endProgress = 0.35;
-                    const fadeOutProgress = 0.4;
-                    
-                    if (scrollProgress > startProgress && scrollProgress < fadeOutProgress) {
-                        card.classList.add('visible');
-                        card.classList.remove('hidden');
-                        card.style.transitionDelay = '0s';
-                    } else if (scrollProgress >= fadeOutProgress) {
-                        card.classList.add('hidden');
-                        card.classList.remove('visible');
-                    } else {
-                        card.classList.remove('visible', 'hidden');
+                // Animate advantages
+                const advantages = section.querySelectorAll('[data-animate="advantage"]');
+                advantages.forEach((item, index) => {
+                    const itemRect = item.getBoundingClientRect();
+                    if (itemRect.top < windowHeight * 0.8) {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 100);
                     }
                 });
                 
                 // Animate gallery items
                 const galleryItems = section.querySelectorAll('[data-animate="gallery"]');
                 galleryItems.forEach((item, index) => {
-                    const delay = index * 0.05;
-                    const startProgress = 0.3 + delay;
-                    const endProgress = 0.7;
-                    const fadeOutProgress = 0.8;
-                    
-                    if (scrollProgress > startProgress && scrollProgress < fadeOutProgress) {
-                        item.classList.add('visible');
-                        item.classList.remove('hidden');
-                        item.style.transitionDelay = '0s';
-                    } else if (scrollProgress >= fadeOutProgress) {
-                        item.classList.add('hidden');
-                        item.classList.remove('visible');
-                    } else {
-                        item.classList.remove('visible', 'hidden');
+                    const itemRect = item.getBoundingClientRect();
+                    if (itemRect.top < windowHeight * 0.8) {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 100);
                     }
                 });
                 
                 // Animate contact items
                 const contactItems = section.querySelectorAll('[data-animate="contact"]');
                 contactItems.forEach((item, index) => {
-                    const delay = index * 0.03;
-                    const startProgress = 0.25 + delay;
-                    const endProgress = 0.8;
-                    const fadeOutProgress = 0.9;
-                    
-                    if (scrollProgress > startProgress && scrollProgress < fadeOutProgress) {
-                        item.classList.add('visible');
-                        item.classList.remove('hidden');
-                        item.style.transitionDelay = '0s';
-                    } else if (scrollProgress >= fadeOutProgress) {
-                        item.classList.add('hidden');
-                        item.classList.remove('visible');
-                    } else {
-                        item.classList.remove('visible', 'hidden');
+                    const itemRect = item.getBoundingClientRect();
+                    if (itemRect.top < windowHeight * 0.8) {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 100);
                     }
                 });
-                
-                // Animate footer
-                const footer = section.querySelector('[data-animate="footer"]');
-                if (footer) {
-                    const startProgress = 0.4;
-                    const fadeOutProgress = 0.9;
-                    
-                    if (scrollProgress > startProgress && scrollProgress < fadeOutProgress) {
-                        footer.classList.add('visible');
-                        footer.classList.remove('hidden');
-                    } else if (scrollProgress >= fadeOutProgress) {
-                        footer.classList.add('hidden');
-                        footer.classList.remove('visible');
-                    } else {
-                        footer.classList.remove('visible', 'hidden');
-                    }
-                }
             });
         }
 
-        // Initialize animations on scroll
+        // Run on load and scroll
         window.addEventListener('scroll', handleScrollAnimations);
         window.addEventListener('load', handleScrollAnimations);
-        
-        // Initial check
-        handleScrollAnimations();
+        handleScrollAnimations(); // Initial check
     </script>
 </body>
 </html>
